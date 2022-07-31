@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-06-21T00:58:13.776637+00:00",
+  "timestamp": "2022-07-31T01:03:59.815301+00:00",
   "repo": "ietf-wg-httpapi/deprecation-header",
   "labels": [
     {
@@ -256,12 +256,13 @@
       "author": "reschke",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [
+        "reschke",
         "dret"
       ],
       "labels": [],
       "body": "Maybe a good example would be a redirect to a different site, with \"Deprecation\" saying when the redirecting site is going to disappear.",
       "createdAt": "2021-03-12T16:22:58Z",
-      "updatedAt": "2022-06-08T15:33:01Z",
+      "updatedAt": "2022-07-30T13:26:54Z",
       "closedAt": null,
       "comments": [
         {
@@ -389,6 +390,20 @@
           "body": "@reschke, i am doing a bit of housekeeping and noticed that this issue is still open. can you please have a quick look and see whether such an example in your opinion is needed? thanks!",
           "createdAt": "2022-06-08T15:33:01Z",
           "updatedAt": "2022-06-08T15:33:01Z"
+        },
+        {
+          "author": "reschke",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Noted. Will re-read over the weekend.",
+          "createdAt": "2022-07-29T15:07:15Z",
+          "updatedAt": "2022-07-29T15:07:15Z"
+        },
+        {
+          "author": "reschke",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Ok.\r\n\r\n1) Looked at the existing examples. These are confusing, because there are two, and the second essentially is a superset of the first. Things would be less confusing if this was streamlined.\r\n\r\n2) Are the examples sufficient? Maybe. I think it would be good if the examples should actual request/response pairs, instead of just repeating syntax defined earlier on. But it's an editorial choice.",
+          "createdAt": "2022-07-30T13:26:54Z",
+          "updatedAt": "2022-07-30T13:26:54Z"
         }
       ]
     },
@@ -1288,6 +1303,62 @@
       "body": "The current draft still requests publication in the IANA message field registry. There now is a specific registry for HTTP fields, and the registration request should be changed to that registry.",
       "createdAt": "2022-06-10T07:01:45Z",
       "updatedAt": "2022-06-10T07:01:48Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 22,
+      "id": "I_kwDOE0P-y85O25ru",
+      "title": "link to HTTP IMF-fixdate is dangling; also http-date vs imf-fixdate",
+      "url": "https://github.com/ietf-wg-httpapi/deprecation-header/issues/22",
+      "state": "OPEN",
+      "author": "reschke",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I also note that Sunset uses http-date, which is a superset.\r\n\r\nRestricting to imf-date is well-intended, but IMHO not a good idea as the assumption is that recipients will just use generic HTTP date parsers, right?",
+      "createdAt": "2022-07-30T12:52:00Z",
+      "updatedAt": "2022-07-30T12:52:00Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 23,
+      "id": "I_kwDOE0P-y85O251b",
+      "title": "IANA considerations",
+      "url": "https://github.com/ietf-wg-httpapi/deprecation-header/issues/23",
+      "state": "OPEN",
+      "author": "reschke",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "a) \"field\"\r\nb) use the new HTTP field registry",
+      "createdAt": "2022-07-30T12:54:50Z",
+      "updatedAt": "2022-07-30T13:21:57Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "reschke",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "There are many more cases where \"header\" is used instead of \"field\".",
+          "createdAt": "2022-07-30T13:21:57Z",
+          "updatedAt": "2022-07-30T13:21:57Z"
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "id": "I_kwDOE0P-y85O3B18",
+      "title": "intro to header field inprecise",
+      "url": "https://github.com/ietf-wg-httpapi/deprecation-header/issues/24",
+      "state": "OPEN",
+      "author": "reschke",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "> The Deprecation HTTP response header field allows a server to communicate to a client that the resource in context of the message is or will be deprecated.\r\n\r\nWhat exactly does \"in context of the message\" mean? Is this about the resource being deprecated only in certain contexts (which?), or about the actual *resource* (URI) being deprecated depending on the request context?",
+      "createdAt": "2022-07-30T13:29:27Z",
+      "updatedAt": "2022-07-30T13:29:27Z",
       "closedAt": null,
       "comments": []
     }
