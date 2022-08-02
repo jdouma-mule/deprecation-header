@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-07-31T01:03:59.815301+00:00",
+  "timestamp": "2022-08-02T01:07:09.634729+00:00",
   "repo": "ietf-wg-httpapi/deprecation-header",
   "labels": [
     {
@@ -1314,37 +1314,39 @@
       "state": "OPEN",
       "author": "reschke",
       "authorAssociation": "CONTRIBUTOR",
-      "assignees": [],
+      "assignees": [
+        "dret"
+      ],
       "labels": [],
       "body": "I also note that Sunset uses http-date, which is a superset.\r\n\r\nRestricting to imf-date is well-intended, but IMHO not a good idea as the assumption is that recipients will just use generic HTTP date parsers, right?",
       "createdAt": "2022-07-30T12:52:00Z",
-      "updatedAt": "2022-07-30T12:52:00Z",
+      "updatedAt": "2022-08-01T16:05:29Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "dret",
+          "authorAssociation": "COLLABORATOR",
+          "body": "On 2022-07-30 15:52, Julian Reschke wrote:\n> I also note that Sunset uses http-date, which is a superset.\n> \n> Restricting to imf-date is well-intended, but IMHO not a good idea as \n> the assumption is that recipients will just use generic HTTP date \n> parsers, right?\n\nthat's a good point, thanks. i'll leave this one open just in case we \nend up finishing \"Deprecation\" instead of starting \"Lifecycle\".\n",
+          "createdAt": "2022-07-31T19:12:01Z",
+          "updatedAt": "2022-07-31T19:12:01Z"
+        }
+      ]
     },
     {
       "number": 23,
       "id": "I_kwDOE0P-y85O251b",
-      "title": "IANA considerations",
+      "title": "\"header\" vs \"field\"",
       "url": "https://github.com/ietf-wg-httpapi/deprecation-header/issues/23",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "reschke",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
-      "body": "a) \"field\"\r\nb) use the new HTTP field registry",
+      "body": "",
       "createdAt": "2022-07-30T12:54:50Z",
-      "updatedAt": "2022-07-30T13:21:57Z",
-      "closedAt": null,
-      "comments": [
-        {
-          "author": "reschke",
-          "authorAssociation": "CONTRIBUTOR",
-          "body": "There are many more cases where \"header\" is used instead of \"field\".",
-          "createdAt": "2022-07-30T13:21:57Z",
-          "updatedAt": "2022-07-30T13:21:57Z"
-        }
-      ]
+      "updatedAt": "2022-08-01T16:04:08Z",
+      "closedAt": "2022-08-01T16:04:08Z",
+      "comments": []
     },
     {
       "number": 24,
@@ -1354,11 +1356,13 @@
       "state": "OPEN",
       "author": "reschke",
       "authorAssociation": "CONTRIBUTOR",
-      "assignees": [],
+      "assignees": [
+        "dret"
+      ],
       "labels": [],
       "body": "> The Deprecation HTTP response header field allows a server to communicate to a client that the resource in context of the message is or will be deprecated.\r\n\r\nWhat exactly does \"in context of the message\" mean? Is this about the resource being deprecated only in certain contexts (which?), or about the actual *resource* (URI) being deprecated depending on the request context?",
       "createdAt": "2022-07-30T13:29:27Z",
-      "updatedAt": "2022-07-30T13:29:27Z",
+      "updatedAt": "2022-08-01T16:05:30Z",
       "closedAt": null,
       "comments": []
     }
@@ -1564,6 +1568,48 @@
         }
       ],
       "reviews": []
+    },
+    {
+      "number": 25,
+      "id": "PR_kwDOE0P-y848Yczi",
+      "title": "\"field\" terminology (fixes #23)",
+      "url": "https://github.com/ietf-wg-httpapi/deprecation-header/pull/25",
+      "state": "MERGED",
+      "author": "reschke",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-07-31T14:45:56Z",
+      "updatedAt": "2022-08-01T16:04:07Z",
+      "baseRepository": "ietf-wg-httpapi/deprecation-header",
+      "baseRefName": "main",
+      "baseRefOid": "fab5e10951fad1a92ad7f9e3317b9465d1bfc48a",
+      "headRepository": "reschke/deprecation-header",
+      "headRefName": "patch-2",
+      "headRefOid": "19e36e2425f7d03eefc1bbaba23ae3a08053de36",
+      "closedAt": "2022-08-01T16:04:07Z",
+      "mergedAt": "2022-08-01T16:04:07Z",
+      "mergedBy": "dret",
+      "mergeCommit": {
+        "oid": "7a97bb757f3bf5fbd6333813417d75696a0cee00"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOE0P-y84_CLmq",
+          "commit": {
+            "abbreviatedOid": "19e36e2"
+          },
+          "author": "dret",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "thanks so much, those were *a lot* of changes!",
+          "createdAt": "2022-08-01T16:03:49Z",
+          "updatedAt": "2022-08-01T16:03:49Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
