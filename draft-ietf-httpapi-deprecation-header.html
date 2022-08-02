@@ -1036,7 +1036,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Dalal &amp; Wilde</td>
-<td class="center">Expires 2 February 2023</td>
+<td class="center">Expires 3 February 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1049,12 +1049,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-httpapi-deprecation-header-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-08-01" class="published">1 August 2022</time>
+<time datetime="2022-08-02" class="published">2 August 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-02-02">2 February 2023</time></dd>
+<dd class="expires"><time datetime="2023-02-03">3 February 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1105,7 +1105,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 2 February 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 3 February 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1221,7 +1221,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">Deprecation of an HTTP resource (<span><a href="https://rfc-editor.org/rfc/rfc9110#section-2" class="relref">Section 2</a> of [<a href="#HTTP" class="xref">HTTP</a>]</span>) communicates information about the lifecycle of a resource. It encourages applications to migrate away from the resource, discourages applications from forming new dependencies on the resource, and informs applications about the risk of continued dependence upon the resource.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">Deprecation of an HTTP resource (<span><a href="https://rfc-editor.org/rfc/rfc9110#section-3.1" class="relref">Section 3.1</a> of [<a href="#HTTP" class="xref">HTTP</a>]</span>) communicates information about the lifecycle of a resource. It encourages applications to migrate away from the resource, discourages applications from forming new dependencies on the resource, and informs applications about the risk of continued dependence upon the resource.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">The act of deprecation does not change any behavior of the resource. It informs clients of the fact that a resource will be or is deprecated. The Deprecation HTTP response header field can be used to convey this at runtime to clients and carries information indicating when the deprecation will be in effect.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">In addition to the Deprecation header field, the resource provider can use other header fields to convey additional information related to deprecation. This can be information such as where to find documentation related to the deprecation, what can be used as a replacement, and when a deprecated resource becomes non-operational.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <div id="notational-conventions">
@@ -1233,8 +1233,8 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="xref">RFC8174</a>]</span> when, and only when, they
 appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
-<p id="section-1.1-2">This specification uses the Augmented Backus-Naur Form (ABNF) notation of <span>[<a href="#RFC5234" class="xref">RFC5234</a>]</span> and includes, by reference, the IMF-fixdate rule as defined in <span><a href="https://rfc-editor.org/rfc/rfc9110#section-7.1.1.1" class="relref">Section 7.1.1.1</a> of [<a href="#HTTP" class="xref">HTTP</a>]</span>.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
-<p id="section-1.1-3">The term "resource" is to be interpreted as defined in <span><a href="https://rfc-editor.org/rfc/rfc9110#section-2" class="relref">Section 2</a> of [<a href="#HTTP" class="xref">HTTP</a>]</span>.<a href="#section-1.1-3" class="pilcrow">¶</a></p>
+<p id="section-1.1-2">This specification uses the Augmented Backus-Naur Form (ABNF) notation of <span>[<a href="#RFC5234" class="xref">RFC5234</a>]</span> and includes, by reference, the IMF-fixdate rule as defined in <span><a href="https://rfc-editor.org/rfc/rfc9110#section-5.6.7" class="relref">Section 5.6.7</a> of [<a href="#HTTP" class="xref">HTTP</a>]</span>.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+<p id="section-1.1-3">The term "resource" is to be interpreted as defined in <span><a href="https://rfc-editor.org/rfc/rfc9110#section-3.1" class="relref">Section 3.1</a> of [<a href="#HTTP" class="xref">HTTP</a>]</span>.<a href="#section-1.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1250,7 +1250,7 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
         <h3 id="name-syntax">
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-syntax" class="section-name selfRef">Syntax</a>
         </h3>
-<p id="section-2.1-1">The <code>Deprecation</code> response header field describes the deprecation of the resource identified with the response it occurred within (see <span><a href="https://rfc-editor.org/rfc/rfc9110#section-3.1.4.1" class="relref">Section 3.1.4.1</a> of [<a href="#HTTP" class="xref">HTTP</a>]</span>). It conveys the deprecation date, which may be in the future (the resource context will be deprecated at that date) or in the past (the resource context has been deprecated at that date).<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.1-1">The <code>Deprecation</code> response header field describes the deprecation of the resource identified with the response it occurred within (see <span><a href="https://rfc-editor.org/rfc/rfc9110#section-6.4.2" class="relref">Section 6.4.2</a> of [<a href="#HTTP" class="xref">HTTP</a>]</span>). It conveys the deprecation date, which may be in the future (the resource context will be deprecated at that date) or in the past (the resource context has been deprecated at that date).<a href="#section-2.1-1" class="pilcrow">¶</a></p>
 <div id="section-2.1-2">
 <pre class="lang-abnf sourcecode">
 Deprecation = IMF-fixdate
@@ -1272,7 +1272,7 @@ Deprecation: Sun, 11 Nov 2018 23:59:59 GMT
         <h3 id="name-scope">
 <a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
         </h3>
-<p id="section-2.2-1">The Deprecation header field applies to the resource identified with the response it occurred within (see <span><a href="https://rfc-editor.org/rfc/rfc9110#section-3.1.4.1" class="relref">Section 3.1.4.1</a> of [<a href="#HTTP" class="xref">HTTP</a>]</span>), meaning that it announces the upcoming deprecation of that specific resource. However, there may be scenarios where the scope of the announced deprecation is larger than just the single resource where it appears.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2-1">The Deprecation header field applies to the resource identified with the response it occurred within (see <span><a href="https://rfc-editor.org/rfc/rfc9110#section-6.4.2" class="relref">Section 6.4.2</a> of [<a href="#HTTP" class="xref">HTTP</a>]</span>), meaning that it announces the upcoming deprecation of that specific resource. However, there may be scenarios where the scope of the announced deprecation is larger than just the single resource where it appears.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
 <p id="section-2.2-2">Resources are free to define such an increased scope, and usually this scope will be documented by the resource so that consumers of the resource know about the increased scope and can behave accordingly. When doing so, it is important to take into account that such increased scoping is invisible for consumers who are unaware of the increased scoping rules. This means that these consumers will not be aware of the increased scope, and they will not interpret deprecation information different from its standard meaning (i.e., it applies to the resource only).<a href="#section-2.2-2" class="pilcrow">¶</a></p>
 <p id="section-2.2-3">Using such an increased scope still may make sense, as deprecation information is only a hint anyway. It is optional information that cannot be depended on, and clients should always be implemented in ways that allow them to function without Deprecation information. Increased scope information may help clients to glean additional hints from related resources and, thus, might allow them to implement behavior that allows them to make educated guesses about resources becoming deprecated.<a href="#section-2.2-3" class="pilcrow">¶</a></p>
 <p id="section-2.2-4">For example, an API might not use Deprecation header fields on all of its resources, but only on designated resources such as the API's home document. This means that deprecation information is available, but in order to get it, clients have to periodically inspect the home document. In this example, the extended context of the Deprecation header field would be all resources provided by the API, while the visibility of the information would only be on the home document.<a href="#section-2.2-4" class="pilcrow">¶</a></p>
