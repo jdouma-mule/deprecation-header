@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-08-02T01:07:09.634729+00:00",
+  "timestamp": "2022-08-04T01:05:24.952037+00:00",
   "repo": "ietf-wg-httpapi/deprecation-header",
   "labels": [
     {
@@ -1607,6 +1607,56 @@
           "body": "thanks so much, those were *a lot* of changes!",
           "createdAt": "2022-08-01T16:03:49Z",
           "updatedAt": "2022-08-01T16:03:49Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "id": "PR_kwDOE0P-y848fu2K",
+      "title": "fix links into [HTTP]",
+      "url": "https://github.com/ietf-wg-httpapi/deprecation-header/pull/26",
+      "state": "MERGED",
+      "author": "reschke",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-08-02T10:51:40Z",
+      "updatedAt": "2022-08-03T09:23:59Z",
+      "baseRepository": "ietf-wg-httpapi/deprecation-header",
+      "baseRefName": "main",
+      "baseRefOid": "7a97bb757f3bf5fbd6333813417d75696a0cee00",
+      "headRepository": "reschke/deprecation-header",
+      "headRefName": "patch-3",
+      "headRefOid": "fad322e8c1916db1b6cb6b63c0a9dc7fa7ed79e3",
+      "closedAt": "2022-08-02T18:26:48Z",
+      "mergedAt": "2022-08-02T18:26:48Z",
+      "mergedBy": "dret",
+      "mergeCommit": {
+        "oid": "4d11cc315dcc13629eb428a4c1d81941c53b83e0"
+      },
+      "comments": [
+        {
+          "author": "reschke",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Well, as long as this is a WG work item, we should keep it in shape.",
+          "createdAt": "2022-08-03T09:23:59Z",
+          "updatedAt": "2022-08-03T09:23:59Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOE0P-y84_IpvK",
+          "commit": {
+            "abbreviatedOid": "fad322e"
+          },
+          "author": "dret",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "thanks, and happily accepted. but please don't spend any more time improving this draft which in all likelihood will be abandoned in favor of a new \"API Lifecycle\" draft. thanks!",
+          "createdAt": "2022-08-02T18:26:36Z",
+          "updatedAt": "2022-08-02T18:26:36Z",
           "comments": []
         }
       ]
