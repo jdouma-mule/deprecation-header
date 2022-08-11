@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-08-09T01:04:52.508096+00:00",
+  "timestamp": "2022-08-11T00:58:46.865871+00:00",
   "repo": "ietf-wg-httpapi/deprecation-header",
   "labels": [
     {
@@ -677,7 +677,7 @@
       "labels": [],
       "body": "It's not a mandated requirement, but new fields are encouraged to use Structured Fields --\r\n  https://httpwg.org/specs/rfc8941.html\r\n\r\nThis has a number of advantages:\r\n\r\n- well-specified parsing and serialisation algorithms\r\n- better interop\r\n- less security issues\r\n- common library support\r\n- possible future ability for alternative serialisations that are more efficient (i.e., binary headers)",
       "createdAt": "2021-07-29T06:30:30Z",
-      "updatedAt": "2022-08-08T09:35:31Z",
+      "updatedAt": "2022-08-10T12:15:14Z",
       "closedAt": null,
       "comments": [
         {
@@ -980,6 +980,20 @@
           "body": "I would propose to use nouns for event names\n\ni.e. deprecation = @\u2026\n\nCatching up on emails and discussions. Sorry for missing 114\u2026.family emergency. \n\nSent from my mobile.\n\n> On Aug 8, 2022, at 2:33 PM, Erik Wilde ***@***.***> wrote:\n> \ufeff\n> On 2022-08-08 03:33, Mark Nottingham wrote:\n> > Just an update -- in the syntax that seems to have favour in the HTTP \n> > WG, it might look something like:\n> > Lifecycle: ***@***.***, ***@***.***\n> \n> in terms of using a format that's easy to recognize and easy to parse, \n> that one looks like it's ticking the right boxes.\n> \u2014\n> Reply to this email directly, view it on GitHub, or unsubscribe.\n> You are receiving this because you were mentioned.\n",
           "createdAt": "2022-08-08T09:35:31Z",
           "updatedAt": "2022-08-08T09:35:31Z"
+        },
+        {
+          "author": "ioggstream",
+          "authorAssociation": "NONE",
+          "body": "> that's true. my usual recommendation is to provide these lifecycle\r\nheaders only on API home documents anyway. that way tooling can easily\r\npick them up, but they're not part of the typical data traffic of the API\r\n\r\n\r\n:+1: If we want to shift to Lifecycle, in this specific case values should be human readable, since this information is relevant to humans.\r\n\r\n\r\n\r\n>  `Lifecycle: deprecate=@1623233894, sunset=@1659922372`\r\n\r\nA specific ISO profile  can be used, eg. `@2022-01-01 or @2022-01-01T10:10:10Z.`\r\nIn the future, a SF processor can use the `@` prefix to encode/decode the date on the wire if needed. \r\n\r\nedited: see https://github.com/httpwg/http-extensions/issues/2162#issuecomment-1209439005",
+          "createdAt": "2022-08-09T13:57:51Z",
+          "updatedAt": "2022-08-10T12:15:14Z"
+        },
+        {
+          "author": "mnot",
+          "authorAssociation": "MEMBER",
+          "body": "@ioggstream if you want to argue a different textual format for structured dates, you'll need to do that in the HTTP WG - see https://github.com/httpwg/http-extensions/issues/2162",
+          "createdAt": "2022-08-09T23:01:57Z",
+          "updatedAt": "2022-08-09T23:01:57Z"
         }
       ]
     },
