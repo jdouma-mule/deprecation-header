@@ -132,10 +132,10 @@ The following example uses the same link header field, but also announces a depr
 
 Given that the deprecation date is in the past, the linked information resource may have been updated to include information about the deprecation, allowing consumers to discover information about the deprecation and how to best manage it.
 
-Consider another scenario: a resource has been marked for deprecation to consolidate functionality, data,... in another resource. However, the effort for a consuming client to revert to a new resource can be limited to only pointing to the new resource if the API contract _itself_ does not constitute a breaking change. The `Depreciation` header, in conjunction with the relation type 'deprecation' can then naturally also be used to implement _Hypertext as Engine of Application State_ (HATEOS) concepts, pointing clients to a new resource (being) implemented which can preemptively be tested to assess the impact.
+Consider another scenario: a resource has been marked for deprecation to consolidate functionality, data,... in another resource. However, the effort for a consuming client to revert to a new resource can be limited to only pointing to the new resource if the API contract _itself_ does not constitute a breaking change. The `Depreciation` header, in conjunction with the relation type 'deprecation' can then naturally also be used to implement _Hypertext as Engine of Application State_ (HATEOS) concepts, pointing clients to a new resource (being) implemented which can preemptively be tested, either manually or as part of automated testing, to assess the impact.
 
     Deprecation: 2018-11-11T23:59:59Z
-    Link: <https://developer.example.com/new-resource>;
+    Link: <https://api.example.com/new-resource>;
           rel="deprecation"; type="application/json"
 
 # Sunset
