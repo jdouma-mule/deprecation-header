@@ -110,7 +110,7 @@ For example, an API might not use `Deprecation` header fields on all of its reso
 
 # The Deprecation Link Relation Type
 
-In addition to the Deprecation HTTP header field, the server can use links with the "deprecation" link relation type to communicate to the client where to find more information about deprecation of the context. This can happen before the actual deprecation, to make a deprecation policy discoverable, or after deprecation, when there may be documentation about the deprecation, and possibly documentation of how to manage it.
+In addition to the `Deprecation` HTTP header field, the server can use links with the "deprecation" link relation type to communicate to the client where to find more information about deprecation of the context. This can happen before the actual deprecation, to make a deprecation policy discoverable, or after deprecation, when there may be documentation about the deprecation, and possibly documentation of how to manage it.
 
 This specification places no restrictions on the representation of the linked deprecation policy. In particular, the deprecation policy may be available as human-readable documentation or as machine-readable description.
 
@@ -122,16 +122,21 @@ The purpose of the `Deprecation` header field is to provide a hint about depreca
     Link: <https://developer.example.com/deprecation>;
           rel="deprecation"; type="text/html"
 
-In this example the linked content provides additional information about deprecation of the resource context. There is no Deprecation header field in the response, and thus the resource is not (yet) deprecated. However, the resource already exposes a link where information is available how deprecation is managed for the resource context. This may be documentation explaining the use of the Deprecation header field, and also explaining under which circumstances and with which policies (announcement before deprecation; continued operation after deprecation) deprecation might be happening.
+In this example the linked content provides additional information about deprecation of the resource context. There is no Deprecation header field in the response, and thus the resource is not (yet) deprecated. However, the resource already exposes a link where information is available how deprecation is managed for the resource context. This may be documentation explaining the use of the `Deprecation` header field, and also explaining under which circumstances and with which policies (announcement before deprecation; continued operation after deprecation) deprecation might be happening.
 
-The following example uses the same link header field, but also announces a deprecation date using a Deprecation header field:
+The following example uses the same link header field, but also announces a deprecation date using a `Deprecation` header field:
 
-    Deprecation: Sun, 11 Nov 2018 23:59:59 GMT
+    Deprecation: 2018-11-11T23:59:59Z
     Link: <https://developer.example.com/deprecation>;
           rel="deprecation"; type="text/html"
 
 Given that the deprecation date is in the past, the linked information resource may have been updated to include information about the deprecation, allowing consumers to discover information about the deprecation and how to best manage it.
 
+Consider another scenario: a resource has been marked for deprecation to consolidate functionality, data,... in another resource. However, the effort for a consuming client to revert to a new resource can be limited to only pointing to the new resource if the API contract _itself_ does not constitute a breaking change. The `Depreciation` header, in conjunction with the relation type 'deprecation' can then naturally also be used to implement _Hypertext as Engine of Application State_ (HATEOS) concepts, pointing clients to a new resource (being) implemented which can preemptively be tested to assess the impact.
+
+    Deprecation: 2018-11-11T23:59:59Z
+    Link: <https://developer.example.com/new-resource>;
+          rel="deprecation"; type="application/json"
 
 # Sunset
 
