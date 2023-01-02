@@ -75,34 +75,42 @@ The `Deprecation` HTTP response header field allows a server to communicate to a
 The `Deprecation` response header field describes the deprecation of the resource identified with the response it occurred within (see {{Section 6.4.2 of HTTP}}). It conveys the deprecation date, which may be in the future (the resource context will be deprecated at that date) or in the past (the resource context has been deprecated at that date).
 
 ~~~ abnf
-Deprecation = IMF-fixdate
+Deprecation = ISO-8601
 ~~~
 
 Servers MUST NOT include more than one `Deprecation` header field in the same response.
 
-The date is the date when the resource was or will be deprecated. It is in the form of an IMF-fixdate timestamp.
+The date is the date when the resource was or will be deprecated. It is in the form of an ISO-8601 timestamp.
 
-The following example shows that the resource context has been deprecated on Sunday, November 11, 2018 at 23:59:59 GMT:
+### Example 1
 
-    Deprecation: Sun, 11 Nov 2018 23:59:59 GMT
+The following example shows that the resource context has been deprecated on Sunday, November 11, 2018 at 23:59:59 Greenwich Mean Time (GMT):
+
+    Deprecation: 2018-11-11T23:59:59Z
+    
+### Example 2
+
+The following example shows that the resource context will be deprecated on Saturday, November 11, 2045 at 04:00:00 Pacific Standard Time (PST):
+
+    Deprecation: 2023-01-02T04:00:00-08:00
 
 The deprecation date can be in the future. This means that the resource will be deprecated at the indicated date in the future.
 
 
 ## Scope
 
-The Deprecation header field applies to the resource identified with the response it occurred within (see {{Section 6.4.2 of HTTP}}), meaning that it announces the upcoming deprecation of that specific resource. However, there may be scenarios where the scope of the announced deprecation is larger than just the single resource where it appears.
+The `Deprecation` header field applies to the resource identified with the response it occurred within (see {{Section 6.4.2 of HTTP}}), meaning that it announces the upcoming deprecation of that specific resource. However, there may be scenarios where the scope of the announced deprecation is larger than just the single resource where it appears.
 
 Resources are free to define such an increased scope, and usually this scope will be documented by the resource so that consumers of the resource know about the increased scope and can behave accordingly. When doing so, it is important to take into account that such increased scoping is invisible for consumers who are unaware of the increased scoping rules. This means that these consumers will not be aware of the increased scope, and they will not interpret deprecation information different from its standard meaning (i.e., it applies to the resource only).
 
 Using such an increased scope still may make sense, as deprecation information is only a hint anyway. It is optional information that cannot be depended on, and clients should always be implemented in ways that allow them to function without Deprecation information. Increased scope information may help clients to glean additional hints from related resources and, thus, might allow them to implement behavior that allows them to make educated guesses about resources becoming deprecated.
 
-For example, an API might not use Deprecation header fields on all of its resources, but only on designated resources such as the API's home document. This means that deprecation information is available, but in order to get it, clients have to periodically inspect the home document. In this example, the extended context of the Deprecation header field would be all resources provided by the API, while the visibility of the information would only be on the home document.
+For example, an API might not use `Deprecation` header fields on all of its resources, but only on designated resources such as the API's home document. This means that deprecation information is available, but in order to get it, clients have to periodically inspect the home document. In this example, the extended context of the `Deprecation` header field would be all resources provided by the API, while the visibility of the information would only be on the home document.
 
 
 # The Deprecation Link Relation Type
 
-In addition to the Deprecation HTTP header field, the server can use links with the "deprecation" link relation type to communicate to the client where to find more information about deprecation of the context. This can happen before the actual deprecation, to make a deprecation policy discoverable, or after deprecation, when there may be documentation about the deprecation, and possibly documentation of how to manage it.
+In addition to the `Deprecation` HTTP header field, the server can use links with the "deprecation" link relation type to communicate to the client where to find more information about deprecation of the context. This can happen before the actual deprecation, to make a deprecation policy discoverable, or after deprecation, when there may be documentation about the deprecation, and possibly documentation of how to manage it.
 
 This specification places no restrictions on the representation of the linked deprecation policy. In particular, the deprecation policy may be available as human-readable documentation or as machine-readable description.
 
@@ -114,16 +122,21 @@ The purpose of the `Deprecation` header field is to provide a hint about depreca
     Link: <https://developer.example.com/deprecation>;
           rel="deprecation"; type="text/html"
 
-In this example the linked content provides additional information about deprecation of the resource context. There is no Deprecation header field in the response, and thus the resource is not (yet) deprecated. However, the resource already exposes a link where information is available how deprecation is managed for the resource context. This may be documentation explaining the use of the Deprecation header field, and also explaining under which circumstances and with which policies (announcement before deprecation; continued operation after deprecation) deprecation might be happening.
+In this example the linked content provides additional information about deprecation of the resource context. There is no Deprecation header field in the response, and thus the resource is not (yet) deprecated. However, the resource already exposes a link where information is available how deprecation is managed for the resource context. This may be documentation explaining the use of the `Deprecation` header field, and also explaining under which circumstances and with which policies (announcement before deprecation; continued operation after deprecation) deprecation might be happening.
 
-The following example uses the same link header field, but also announces a deprecation date using a Deprecation header field:
+The following example uses the same link header field, but also announces a deprecation date using a `Deprecation` header field:
 
-    Deprecation: Sun, 11 Nov 2018 23:59:59 GMT
+    Deprecation: 2018-11-11T23:59:59Z
     Link: <https://developer.example.com/deprecation>;
           rel="deprecation"; type="text/html"
 
 Given that the deprecation date is in the past, the linked information resource may have been updated to include information about the deprecation, allowing consumers to discover information about the deprecation and how to best manage it.
 
+Consider another scenario: a resource has been marked for deprecation to consolidate functionality, data,... in another resource. However, the effort for a consuming client to revert to a new resource can be limited to only pointing to the new resource if the API contract _itself_ does not constitute a breaking change. The `Depreciation` header, in conjunction with the relation type 'deprecation' can then naturally also be used to implement _Hypertext as Engine of Application State_ (HATEOS) concepts, pointing clients to a new resource (being) implemented which can preemptively be tested to assess the impact.
+
+    Deprecation: 2018-11-11T23:59:59Z
+    Link: <https://developer.example.com/new-resource>;
+          rel="deprecation"; type="application/json"
 
 # Sunset
 
@@ -133,8 +146,8 @@ The timestamp given in the `Sunset` header field MUST NOT be earlier than the on
 
 The following example shows that the resource in context has been deprecated since Sunday, November 11, 2018 at 23:59:59 GMT and its sunset date is Wednesday, November 11, 2020 at 23:59:59 GMT.
 
-    Deprecation: Sun, 11 Nov 2018 23:59:59 GMT
-    Sunset: Wed, 11 Nov 2020 23:59:59 GMT
+    Deprecation: 2018-11-11T23:59:59Z
+    Sunset: 2020-11-11T23:59:59Z
 
 # Resource Behavior
 
