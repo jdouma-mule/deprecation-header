@@ -75,16 +75,25 @@ The `Deprecation` HTTP response header field allows a server to communicate to a
 The `Deprecation` response header field describes the deprecation of the resource identified with the response it occurred within (see {{Section 6.4.2 of HTTP}}). It conveys the deprecation date, which may be in the future (the resource context will be deprecated at that date) or in the past (the resource context has been deprecated at that date).
 
 ~~~ abnf
-Deprecation = IMF-fixdate
+Deprecation = ISO-8601
 ~~~
 
 Servers MUST NOT include more than one `Deprecation` header field in the same response.
 
-The date is the date when the resource was or will be deprecated. It is in the form of an IMF-fixdate timestamp.
+The date is the date when the resource was or will be deprecated. It is in the form of an ISO-8601 timestamp.
 
-The following example shows that the resource context has been deprecated on Sunday, November 11, 2018 at 23:59:59 GMT:
+### Example 1
 
-    Deprecation: Sun, 11 Nov 2018 23:59:59 GMT
+The following example shows that the resource context has been deprecated on Sunday, November 11, 2018 at 23:59:59 Greenwich Mean Time (GMT):
+
+    Deprecation: 2018-11-11T23:59:59Z
+    
+### Example 2
+
+The following example shows that the resource context will be deprecated on Saturday, November 11, 2045 at 04:00:00 Pacific Standard Time (PST):
+
+    Deprecation: 2023-01-02T04:00:00-08:00
+
 
 The deprecation date can be in the future. This means that the resource will be deprecated at the indicated date in the future.
 
