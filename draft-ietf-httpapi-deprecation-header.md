@@ -132,7 +132,7 @@ The following example uses the same link header field, but also announces a depr
 
 Given that the deprecation date is in the past, the linked information resource may have been updated to include information about the deprecation, allowing consumers to discover information about the deprecation and how to best manage it.
 
-Consider another scenario: a resource has been marked for deprecation to consolidate functionality, data,... in another resource. However, the effort for a consuming client to revert to a new resource can be limited to only pointing to the new resource if the API contract _itself_ does not constitute a breaking change. The `Depreciation` header, in conjunction with the relation type 'deprecation' can then naturally also be used to implement _Hypertext as Engine of Application State_ (HATEOS) concepts, pointing clients to a new resource (being) implemented which can preemptively be tested, either manually or as part of automated testing, to assess the impact.
+Consider another scenario: a resource has been marked for deprecation to consolidate functionality, data,... in another resource. However, the effort for a consuming client to revert to a new resource can be limited to only pointing to the new resource if the API contract _itself_ does not constitute a breaking change. The `Depreciation` header, in conjunction with the relation type 'deprecation' can then naturally also be used to implement _Hypertext as Engine of Application State_ (HATEOAS) concepts, pointing clients to a new resource (being) implemented which can preemptively be tested, either manually or as part of automated testing, to assess the impact.
 
     Deprecation: 2018-11-11T23:59:59Z
     Link: <https://api.example.com/new-resource>;
@@ -290,13 +290,33 @@ The following examples do not show complete HTTP interactions. They only show th
 
 The first example shows a deprecation header field with date information:
 
-    Deprecation: Sun, 11 Nov 2018 23:59:59 GMT
+    Deprecation: 2018-11-11T23:59:59Z
 
 The second example shows a deprecation header field with a link for the resource's deprecation policy. In addition, it shows the sunset date for the deprecated resource:
 
-    Deprecation: Sun, 11 Nov 2018 23:59:59 GMT
-    Sunset: Wed, 11 Nov 2020 23:59:59 GMT
+    Deprecation: 2018-11-11T23:59:59Z
+    Sunset: 2020-11-11T23:59:59Z
     Link: <https://developer.example.com/deprecation>; rel="deprecation"
+    
+## Migration to a new resource
+
+Consider the following scenario: a client application is accessing a resource to retrieve an Employee User Name based on the Employee ID. On Jan 1, 2023, the `Deprecation` and `Link` header were added to the response to indicate future deprecation and point the client application and developer to relevant documentation and the new resource which will implement (part of) the functionality of the to-be deprecated resource.
+
+    GET /employees/445667 HTTP/1.1
+    Host: api.example.com
+
+    HTTP/1.1 200 OK
+    Host: api.example.com
+    Deprecation: 2023-11-11T23:59:59Z
+    Link: <https://api.example.com/new-resource>;
+          rel="deprecation"; type="application/json"
+          
+    {
+        "employeeId" : "445667",
+        "employeeUserName" : "jsmith@example.com"
+    }
+
+
 
 
 
